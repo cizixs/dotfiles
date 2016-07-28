@@ -45,13 +45,11 @@ set hlsearch
 set incsearch
 
 """file-relate
-filetype on
 filetype indent on
 filetype plugin on
 filetype plugin indent on
 set nobackup
 set noswapfile
-filetype plugin indent on
 set autoread	"autoread a file when changed from outside
 set encoding=utf-8	"set utf8 as default encoding 
 set ffs=unix,dos,mac
@@ -67,7 +65,7 @@ set background=dark
 """folding
 set foldenable
 set foldmethod=syntax	"fold methods
-"set foldcolumn=4	"show fold levels on the left
+" set foldcolumn=4	"show fold levels on the left
 
 
 """moving
@@ -157,3 +155,68 @@ noremap <leader>m <Esc>:CommandTBuffer<CR>
 
 """ superTab
 "let g:SuperTabDefaultCompletionType = "context"
+
+""" vim bundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+Plugin 'wincent/command-t'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'klen/python-mode'
+Plugin 'ervandew/supertab'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'fatih/vim-go'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'Konfekt/FastFold'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+filetype plugin on
+"
+" Brief help
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+
+let g:neocomplete#enable_at_startup = 1
+
+
+""" neocomplete
+let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+
+""" FastFold
+let g:tex_fold_enabled=1
+let g:vimsyn_folding='af'
+let g:xml_syntax_folding=1
+let g:php_folding=1
+let g:perl_fold=1
