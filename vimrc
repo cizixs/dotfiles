@@ -189,6 +189,16 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
 Plugin 'Lokaltog/vim-powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'Konfekt/FastFold'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'ap/vim-css-color'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'godlygeek/tabular'
+Plugin 'mattn/emmet-vim'
+Plugin 'othree/html5-syntax.vim'
+Plugin 'othree/html5.vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -221,3 +231,11 @@ let g:vimsyn_folding='af'
 let g:xml_syntax_folding=1
 let g:php_folding=1
 let g:perl_fold=1
+
+"""JSHint2
+let jshint2_read = 1
+let jshint2_close = 0
+let jshint2_max_height=8
+
+"""Vim-Javascript
+let g:javascript_plugin_jsdoc = 1
