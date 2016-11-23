@@ -174,6 +174,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'wincent/command-t'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -187,8 +188,11 @@ Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'fatih/vim-go'
-Plugin 'Lokaltog/vim-powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'Lokaltog/vim-powerline'
 Plugin 'Konfekt/FastFold'
+Plugin 'vim-scripts/a.vim'
+Plugin 'tpope/vim-markdown'
+Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Shutnik/jshint2.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
@@ -217,6 +221,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 
+let g:neocomplete#enable_at_startup = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = {'mode': 'active', 'passvive_filetypes': ['go'] }
 
