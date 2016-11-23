@@ -105,58 +105,6 @@ autocmd! bufwritepost _vimrc source %   "make change effective instantly
 "use pathoge#infect to install plugin
 execute pathogen#infect()
 
-
-""""plugins
-
-""" NerdTree
-autocmd vimenter * NERDTree "auto open nerdtree
-autocmd vimenter * if !argc() | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-"Taglist
-map <f3> :TlistToggle<CR>
-set tags=tags;  "find tags upto
-set autochdir   "change pwd
-let Tlist_Show_One_file=1   "only show tags of current file
-let Tlist_Exit_Only_Window=1 "exit vim when taglist is the last file
-let Tlist_Use_Right_Window=1    "show taglist on the right panel
-let g:winManagerWindowLayout='FileExplorer'
-
-"Tagbar
-map <C-m> :TagbarToggle<CR>
-
-"powerline
-set guifont=PowerlineSymbols "\ for\ Powerline
-let g:Powerline_symbols = 'fancy'
-set fillchars+=stl:\ ,stlnc:\
-set t_Co=256
-let g:Powerline_cache_enabled = 1
-set laststatus=2   " Always show the statusline 
-
-""" Ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-
-"""" exclude some files
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-
-""""custome file find command
-"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
-"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
-
-""" CommandT
-noremap <leader>o <Esc>:CommandT<CR>
-noremap <leader>O <Esc>:CommandTFlush<CR>
-noremap <leader>m <Esc>:CommandTBuffer<CR>
-
-""" superTab
-"let g:SuperTabDefaultCompletionType = "context"
-
 """ vim bundle
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -221,7 +169,6 @@ let g:go_highlight_build_constraints = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 
-let g:neocomplete#enable_at_startup = 1
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = {'mode': 'active', 'passvive_filetypes': ['go'] }
 
@@ -230,6 +177,54 @@ let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 
+""" NerdTree
+autocmd vimenter * NERDTree "auto open nerdtree
+autocmd vimenter * if !argc() | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"Taglist
+map <f3> :TlistToggle<CR>
+set tags=tags;  "find tags upto
+set autochdir   "change pwd
+let Tlist_Show_One_file=1   "only show tags of current file
+let Tlist_Exit_Only_Window=1 "exit vim when taglist is the last file
+let Tlist_Use_Right_Window=1    "show taglist on the right panel
+let g:winManagerWindowLayout='FileExplorer'
+
+"Tagbar
+map <C-m> :TagbarToggle<CR>
+
+"powerline
+set guifont=PowerlineSymbols "\ for\ Powerline
+let g:Powerline_symbols = 'fancy'
+set fillchars+=stl:\ ,stlnc:\
+set t_Co=256
+let g:Powerline_cache_enabled = 1
+set laststatus=2   " Always show the statusline 
+
+""" Ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+"""" exclude some files
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
+""""custome file find command
+"let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
+"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'  " Windows
+
+""" CommandT
+noremap <leader>o <Esc>:CommandT<CR>
+noremap <leader>O <Esc>:CommandTFlush<CR>
+noremap <leader>m <Esc>:CommandTBuffer<CR>
+
+""" superTab
+"let g:SuperTabDefaultCompletionType = "context"
 """ FastFold
 let g:tex_fold_enabled=1
 let g:vimsyn_folding='af'
