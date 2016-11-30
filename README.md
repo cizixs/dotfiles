@@ -31,10 +31,10 @@ and [here](http://robots.thoughtbot.com/a-tmux-crash-course).
 
 Apt-source configed, and basic packages installed:
 
-+ git: must have
-+ zsh: last shell you'll ever need
-+ ipython: powerful python interactive shell
-+ curl: download the internet
-+ tmux: work space management
-+ vim: best text editor ever
-+ exuberant-ctags: works best with vim
+- git: must have
+- zsh: last shell you'll ever need
+- ipython: powerful python interactive shell
+- curl: download the internet
+- tmux: work space management
+- vim: best text editor ever
+- exuberant-ctags: works best with vim

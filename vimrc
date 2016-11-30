@@ -186,7 +186,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "Taglist
 map <f3> :TlistToggle<CR>
-set tags=tags;  "find tags upto
+set tags=./tags;/  "find tags upto root, so you can find tag files anywhere in your repo
 set autochdir   "change pwd
 let Tlist_Show_One_file=1   "only show tags of current file
 let Tlist_Exit_Only_Window=1 "exit vim when taglist is the last file
