@@ -155,6 +155,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'dkprice/vim-easygrep'
+Plugin 'mileszs/ack.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
