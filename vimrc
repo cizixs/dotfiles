@@ -185,8 +185,12 @@ let g:neocomplete#enable_smart_case = 1
 """ NerdTree
 autocmd vimenter * NERDTree "auto open nerdtree
 autocmd vimenter * if !argc() | NERDTree | endif
-map <C-n> :NERDTreeToggle<CR>
+"toggle nerdtree with Enter key
+map <C-n> :NERDTreeToggle<CR> 
+"close nerdtree if it is the last open panel
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"ignore certain files
+let NERDTreeIgnore = ['\.pyc$', '\.o$', '\~$']
 
 "Taglist
 map <f3> :TlistToggle<CR>
