@@ -103,7 +103,7 @@ set viminfo^=%
 autocmd! bufwritepost _vimrc source %   "make change effective instantly
 
 "use pathoge#infect to install plugin
-execute pathogen#infect()
+" execute pathogen#infect()
 
 """ vim bundle
 set nocompatible              " be iMproved, required
