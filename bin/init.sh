@@ -58,9 +58,11 @@ setup_zsh(){
         wget --no-check-certificate http://install.ohmyz.sh -O - | sh
         # change zsh to default shell
         sudo chsh -s $(which zsh)
-        echo "alias tmux=\"TERM=screen-256color-bce tmux\"" >> ~/.zshrc
     fi
 
+    if [ ! -f ~/.zshrc ]; then
+        ln ${DIR}/../zshrc ~/.zshrc
+    fi
 }
 
 setup_git() {
