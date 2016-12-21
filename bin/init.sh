@@ -7,7 +7,7 @@ set -o pipefail  # exit when any command fails in a pipeline
 
 
 echo "start vim initialing..."
-DIR=$(cd `dirname $0` && pwd)
+DIR=$(cd `dirname ${BASE_SOURCE[0]}` && pwd)
 
 install_vundle() {
     if [ ! -d ~/.vim/bundle ]; then
@@ -44,12 +44,12 @@ setup_basic_softwares() {
 }
 
 setup_vim() {
+    install_molokai
     if [ ! -f ~/.vimrc ]; then
         ln ${DIR}/../vimrc ~/.vimrc
     fi
     install_vundle
     install_plugins
-    install_molokai
 }
 
 setup_zsh(){
