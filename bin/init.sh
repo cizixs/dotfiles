@@ -7,7 +7,7 @@ set -o pipefail  # exit when any command fails in a pipeline
 
 
 echo "start vim initialing..."
-DIR=$(cd `dirname ${BASE_SOURCE[0]}` && pwd)
+DIR=$(cd `dirname $0` && pwd)
 
 install_vundle() {
     if [ ! -d ~/.vim/bundle ]; then
@@ -77,12 +77,19 @@ setup_tmux() {
     fi
 }
 
+setup_pip() {
+    if [ ! -f ~/.pip.conf ]; then
+        ln ${DIR}/../pip.conf ~/.pip.conf
+    fi
+}
+
 run() {
     setup_basic_softwares
-    setup_vim
     setup_git
     setup_tmux
     setup_zsh
+    setup_pip
+    setup_vim
 }
 
 run
