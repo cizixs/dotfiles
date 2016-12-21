@@ -86,10 +86,8 @@ alias nano="subl"
 alias vssh="ssh vagrant@localhost -p 2222"
 export PATH=$PATH:/usr/local/go/bin
 
-export WORKON_HOME=/Users/cizixs/.virtualenvs/
 source /usr/local/bin/virtualenvwrapper.sh
 
-alias ctags="`brew --prefix`/bin/ctags"
 export PATH=$PATH:/usr/local/sbin
 alias node="node --harmony"
 alias v="vagrant"
@@ -102,17 +100,20 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   --disturl=https://npm.taobao.org/dist \
   --userconfig=$HOME/.cnpmrc"
 
-alias vim="/usr/local/Cellar/vim/7.4.1655/bin/vim"
-alias vi="/usr/local/Cellar/vim/7.4.1655/bin/vim"
 alias dm="docker-machine"
 export GOPATH=~/Code/Golang
 export PATH=${GOPATH}/bin:$PATH
 export EDITOR=vim
 
-# added by travis gem
-[ -f /Users/cizixs/.travis/travis.sh ] && source /Users/cizixs/.travis/travis.sh
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+#### MacOS platform releated
+# alias ctags="`brew --prefix`/bin/ctags"
+# [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# export WORKON_HOME=/Users/cizixs/.virtualenvs/
+# # added by travis gem
+# [ -f /Users/cizixs/.travis/travis.sh ] && source /Users/cizixs/.travis/travis.sh
+# alias vim="/usr/local/Cellar/vim/7.4.1655/bin/vim"
+# alias vi="/usr/local/Cellar/vim/7.4.1655/bin/vim"
 
 alias mux="tmuxinator"
