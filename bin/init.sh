@@ -39,7 +39,7 @@ install_molokai() {
 setup_basic_softwares() {
     sudo apt-get update 
 
-    pkgs="zsh vim git ipython curl tmux exuberant-ctags"
+    pkgs="zsh vim vim-nox gcc python-dev python-pip git ipython curl tmux exuberant-ctags"
     sudo apt-get install -y $pkgs
 }
 
