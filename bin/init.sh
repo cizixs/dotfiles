@@ -37,24 +37,28 @@ install_molokai() {
 }
 
 setup_basic_softwares() {
-    sudo apt-get update 
-
-    pkgs="zsh vim vim-nox gcc python-dev python-pip git ipython curl tmux exuberant-ctags"
-    sudo apt-get install -y $pkgs
+    sudo apt-get update && sudo apt-get install -y zsh \
+        vim vim-tox\
+        gcc python-dev \
+        python-pip ipython \
+        git \
+        curl \
+        tmux \
+        exuberant-ctags
 }
 
 setup_vim() {
     install_molokai
     if [ ! -f ~/.vimrc ]; then
-        ln ${DIR}/../vimrc ~/.vimrc
+        ln "${DIR}"/../vimrc ~/.vimrc
     fi
     install_vundle
     install_plugins
 }
 
 setup_zsh(){
-    # download and install zsh
-    if ! which zsh ; then
+    # download and install ohmyzsh
+    if [ ! -d ~/.oh-my-zsh ]; then
         wget --no-check-certificate http://install.ohmyz.sh -O - | sh
         # change zsh to default shell
         sudo chsh -s $(which zsh)
