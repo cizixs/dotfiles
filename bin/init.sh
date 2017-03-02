@@ -38,7 +38,7 @@ install_molokai() {
 
 setup_basic_softwares() {
     sudo apt-get update && sudo apt-get install -y zsh \
-        vim vim-tox\
+        vim \
         gcc python-dev \
         python-pip ipython \
         git \
@@ -61,7 +61,7 @@ setup_zsh(){
     if [ ! -d ~/.oh-my-zsh ]; then
         wget --no-check-certificate http://install.ohmyz.sh -O - | sh
         # change zsh to default shell
-        sudo chsh -s $(which zsh)
+        sudo bash -c "chsh -s $(which zsh)"
     fi
 
     if [ ! -f ~/.zshrc ]; then
