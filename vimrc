@@ -16,7 +16,9 @@ set history=1000
 set undolevels=1000
 set wildignore=*.swap,*.bak,*.pyc,*.class,*~
 set title
-set showmatch
+set wildmenu    " visual autocomplete for command menu
+set showmatch   " highlight matching [{()}]
+set lazyredraw
 set mouse=a	"enable using mouse
 """}
 
@@ -24,19 +26,22 @@ set mouse=a	"enable using mouse
 """{indent and space
 """ space is important in python, using whitespace instead of tab gives more 
 """ flexablity.
-set tabstop=4	"tab equals 4 spaces
+set tabstop=4	"tab equals 4 spaces when showing
+set expandtab	"convert tab to space
+set softtabstop=4 " replace tab with spaces when inserting
+set shiftwidth=4	"number of spaces to use for autoindenting
+
 set backspace=indent,eol,start	"allow backspace
 set whichwrap+=<,>,h,l
 set autoindent	"auto indent
 set autoread
 set copyindent
 set smartindent
-set shiftwidth=4	"number of spaces to use for autoindenting
 set shiftround
-set expandtab	"convert tab to space
 set smarttab
 set lbr
 set tw=500	"line break on 500 characters
+let mapleader="," "set , as leader
 """}
 
 """search
@@ -44,6 +49,7 @@ set ignorecase
 set smartcase
 set hlsearch
 set incsearch
+nnoremap <leader><space> :nohlsearch<CR>
 
 """file-relate
 filetype indent on
@@ -66,6 +72,8 @@ set background=dark
 """folding
 set foldenable
 set foldmethod=syntax	"fold methods
+set foldlevelstart=10
+set foldnestmax=10
 " set foldcolumn=4	"show fold levels on the left
 
 
