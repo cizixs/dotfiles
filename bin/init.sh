@@ -39,11 +39,11 @@ install_molokai() {
 setup_basic_softwares() {
     sudo apt-get update && sudo apt-get install -y \
         autojump \
-        cloc
+        cloc \
         curl \
         exuberant-ctags \
         gcc \
-        git \ 
+        git \
         ipython \
         python-dev \
         python-pip \
