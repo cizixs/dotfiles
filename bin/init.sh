@@ -95,14 +95,11 @@ setup_pip() {
 install_pip_tools() {
     sudo pip install -U \
         doitlive \
-        httpie \
-        thefuck \
-        virtualenv \
-        virtualenvwrapper
+        httpie
 }
 
 run() {
-    setup_basic_softwares
+    # setup_basic_softwares
     setup_git
     setup_tmux
     setup_zsh

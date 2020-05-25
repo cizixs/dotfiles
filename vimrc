@@ -67,6 +67,8 @@ syntax enable
 syntax on
 "colorscheme desert
 colorscheme molokai "sublime colorscheme
+" colorscheme onehalfdark
+" let g:airline_theme='onehalfdark'
 set background=dark
 
 """folding
@@ -130,14 +132,14 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'airblade/vim-gitgutter'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'junegunn/fzf.vim'
+Plugin 'junegunn/fzf'
 Plugin 'kien/ctrlp.vim'
 Plugin 'klen/python-mode'
 Plugin 'Konfekt/FastFold'
@@ -151,7 +153,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
@@ -175,14 +177,25 @@ let g:go_highlight_operators = 1
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 let g:go_fmt_command = "goimports"
 let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = {'mode': 'active', 'passvive_filetypes': ['go'] }
 
-""" neocomplete
-let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
+""" coc.vim
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 """ NerdTree
 autocmd vimenter * NERDTree "auto open nerdtree
@@ -207,17 +220,43 @@ let g:winManagerWindowLayout='FileExplorer'
 map <C-m> :TagbarToggle<CR>
 
 "powerline
-set guifont=PowerlineSymbols "\ for\ Powerline
+set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 let g:Powerline_symbols = 'fancy'
 set fillchars+=stl:\ ,stlnc:\
 set t_Co=256
 let g:Powerline_cache_enabled = 1
 set laststatus=2   " Always show the statusline 
+set term=xterm-256color
+set termencoding=utf-8
+set noshowmode
 
 """ Ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+""" fzf
+" If installed using Homebrew
+set rtp+=/usr/local/opt/fzf
+
+""" fzf.vim
+" Empty value to disable preview window altogether
+" let g:fzf_preview_window = ''
+
+" Always enable preview window on the right with 60% width
+let g:fzf_preview_window = 'right:60%'
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" [Commands] --expect expression for directly executing the command
+let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
 
 """" exclude some files
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -234,8 +273,6 @@ noremap <leader>o <Esc>:CommandT<CR>
 noremap <leader>O <Esc>:CommandTFlush<CR>
 noremap <leader>m <Esc>:CommandTBuffer<CR>
 
-""" superTab
-"let g:SuperTabDefaultCompletionType = "context"
 """ FastFold
 let g:tex_fold_enabled=1
 let g:vimsyn_folding='af'
@@ -264,3 +301,4 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 EOF
 endif
+Plugin 'wakatime/vim-wakatime'
